@@ -44,7 +44,7 @@ const palette = {
         light: colors.red[400]
     },
     text: {
-        primary: colors.blueGrey[50],
+        primary: WHITE,
         secondary: colors.blueGrey[600],
         link: colors.blue[600]
     },

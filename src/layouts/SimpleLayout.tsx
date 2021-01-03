@@ -10,3 +10,5 @@ const SimpleLayout = (props: { children?: React.ReactNode }) => {
         </div>
     )
 }
+
+export default SimpleLayout;

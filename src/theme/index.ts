@@ -4,7 +4,8 @@ import typography from './typography'
 
 const theme = createMuiTheme({
     palette,
-    typography
+    typography,
+    spacing: factor => `${0.25 * factor}rem`
 });
 
 export default theme

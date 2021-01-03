@@ -9,7 +9,11 @@ export const simpleStyle = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(2)
         },
         title: {
-            flexGrow:1
+            flexGrow:1,
+            //justifyContent: 'left'
+        },
+        menuItem: {
+            color: theme.palette.text.secondary,
         }
     })
 );
