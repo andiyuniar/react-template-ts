@@ -6,7 +6,7 @@ const MainLayout = (props: {children: React.ReactNode}) => {
     return (
         <React.Fragment>
             <MainHeader/>
-            <SideMenu />
+            {/* <SideMenu /> */}
             <main>
                 {props.children}
             </main>
