@@ -1,13 +1,15 @@
 import React from 'react';
+import SimpleHeader from './SimpleHeader';
 
 const SimpleLayout = (props: { children?: React.ReactNode }) => {
 
     return(
-        <div>
+        <React.Fragment>
+            <SimpleHeader />
             <main>
                 {props.children}
             </main>
-        </div>
+        </React.Fragment>
     )
 }
 

@@ -11,12 +11,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { simpleStyle } from './style';
+import { headerStyle } from './style';
 import SideMenu from './SideMenu';
 
 
 const MainHeader = () => {
-  const classes = simpleStyle();
+  const classes = headerStyle();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   // const [mobileOpen, setMobileOpen] = React.useState(false);

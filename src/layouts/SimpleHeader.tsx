@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { simpleStyle } from './style';
+import { headerStyle } from './style';
 
 const SimpleHeader = () => {
-    const classes = simpleStyle();
+    const classes = headerStyle();
 
     return(
         <div className={classes.root}>
@@ -17,7 +17,7 @@ const SimpleHeader = () => {
                     <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant='h4' className={classes.title}>
+                    <Typography variant='h6' className={classes.title}>
                         Web Title
                     </Typography>
                     <Button color='inherit'>Login</Button>
