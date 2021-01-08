@@ -12,21 +12,19 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { loginFormStyle } from './style';
 import Title from '../../components/Title';
+import { loginData } from '../../core/entities/authEntity'
 
-type LoginData = {
-  username: string;
-  password: string;
-}
 
 const LoginForm = () => {
   const classes = loginFormStyle();
-  const { register, handleSubmit, errors } = useForm<LoginData>();
+  const { register, handleSubmit, errors } = useForm<loginData>();
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const submitHandler: SubmitHandler<LoginData> = (data) => {
+  const submitHandler: SubmitHandler<loginData> = (data) => {
     console.log('login submitted:', data);
     // do something with the login data
+    
   }
 
   return (
