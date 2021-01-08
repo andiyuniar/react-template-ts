@@ -8,7 +8,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-// import Visibility from '@material-ui/icons/Visibility';
+import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { loginFormStyle } from './style';
 import Title from '../../components/Title';
@@ -21,15 +21,18 @@ type LoginData = {
 const LoginForm = () => {
   const classes = loginFormStyle();
   const { register, handleSubmit, errors } = useForm<LoginData>();
+  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const submitHandler: SubmitHandler<LoginData> = (data) => {
-    console.log('login submitted');
+    console.log('login submitted:', data);
+    // do something with the login data
   }
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
       <div className={classes.errorTextHelper}>
-        Error
+        {error}
       </div>
       <Title>sign in</Title>
       <TextField className={classes.textField} fullWidth variant='outlined' 
@@ -44,15 +47,24 @@ const LoginForm = () => {
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput endAdornment={
           <InputAdornment position='end'>
-            <IconButton>
-              <VisibilityOff />
+            <IconButton aria-label='toggle password visibility' edge='end'
+              onClick={() => {setShowPassword((prevshowPassword) => !prevshowPassword)}}
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              {showPassword ? (<Visibility />):(<VisibilityOff />)}  
             </IconButton>
           </InputAdornment>
         }
-        labelWidth={70} name='password' />
+        labelWidth={70} name='password'
+        type={ showPassword ? 'text' : 'password'}
+        inputRef={
+          register({
+            required: 'Password is required'
+          })
+        } />
       </FormControl>
       <FormHelperText className={classes.errorTextHelper}>
-        error.password
+        {errors.password && errors.password.message}
       </FormHelperText>
       <Button className={classes.signInButton} color='primary' fullWidth variant='contained'
         type='submit' size='large'>
